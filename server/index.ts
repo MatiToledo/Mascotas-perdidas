@@ -192,7 +192,6 @@ app.get("/petReports", async (req, res) => {
 });
 
 app.use(express.static(staticDirPath));
-console.log(staticDirPath);
 
 app.get("*", (req, res) => {
   res.sendFile(staticDirPath + "/index.html");
