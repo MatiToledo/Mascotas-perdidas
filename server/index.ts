@@ -15,11 +15,6 @@ import {
   sendNotification,
   petReports,
 } from "./controllers/pets-controller";
-import { sequelize } from "./models/connect";
-
-// sequelize.sync({ force: true }).then((res) => {
-//   console.log(res);
-// });
 
 const SECRET = process.env.TOKEN_SECRET;
 
