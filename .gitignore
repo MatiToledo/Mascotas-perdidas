@@ -1,0 +1,7 @@
+.parcel-cache
+client-dist
+server-dist
+node_modules
+./server/index.js
+.env
+dist

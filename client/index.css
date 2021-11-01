@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.home__ubic {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 350px;
+  margin: 30px auto 0;
+  height: 150px;
+}
+
+.cards__container {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 720px) {
+  .cards__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.mypets-cards__container {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 720px) {
+  .mypets-cards__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+#home__card {
+  height: 425px;
+}
+#mypets__card {
+  height: 360px;
+}
+
+.card {
+  margin: 0 auto;
+  width: 350px;
+  margin: 20px;
+  z-index: 0;
+}
+
+.mypets-card-image,
+.home-card-image {
+  height: 234px;
+}
+
+.ingresar__form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 30px auto;
+  height: 240px;
+  justify-content: space-between;
+}
+
+.password__form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 30px auto;
+  height: 130px;
+  justify-content: space-between;
+}
+
+.mydata__form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 30px auto;
+  height: 360px;
+  justify-content: space-between;
+}
+
+.reportpet__form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 30px auto;
+  height: 1000px;
+  justify-content: space-between;
+}
+
+.report__title {
+  width: 377px;
+  margin: 0 auto;
+}
+
+.registrarse__form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 30px auto;
+  height: 380px;
+  justify-content: space-between;
+}
+
+.a__registrarse {
+  margin: 0 auto;
+  text-decoration: underline;
+}
+
+.agregar__foto {
+  display: flex;
+  background-color: #ffe08a;
+  border-color: transparent;
+  color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.dropzone__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ubic__search {
+  display: flex;
+  height: 40px;
+}
+
+.ubic__search-button {
+  display: flex;
+  background-color: #ffe08a;
+  border-color: transparent;
+  color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 10px;
+  width: 80px;
+}
+
+.report__form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 30px auto;
+  height: 380px;
+  justify-content: space-between;
+}
+
+.load-photo {
+  display: flex;
+  background-color: #ffe08a;
+  border-color: transparent;
+  color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 40px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.dropzone-photo {
+  width: 350px;
+  height: 260px;
+}
+
+.mypets-cards__container {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 720px) {
+  .mypets-cards__container {
+    flex-direction: row;
+  }
+}
+
+.mapboxgl-control-container {
+  display: none;
+}
