@@ -5,18 +5,19 @@
     "moduleResolution": "Node",
     "outDir": "server-dist"
   },
-  "files": [
-    "server/controllers/auth-controller.ts",
-    "server/controllers/pets-controller.ts",
-    "server/controllers/users-controller.ts",
-    "server/models/auth.ts",
-    "server/models/connect.ts",
-    "server/models/index.ts",
-    "server/models/pet.ts",
-    "server/models/report.ts",
-    "server/models/user.ts",
-    "server/models/index.ts",
-    "server/dev.ts",
-    "server/index.ts"
-  ]
+  "includes": ["./server/**/*.ts"]
+  // "files": [
+  //   "server/controllers/auth-controller.ts",
+  //   "server/controllers/pets-controller.ts",
+  //   "server/controllers/users-controller.ts",
+  //   "server/models/auth.ts",
+  //   "server/models/connect.ts",
+  //   "server/models/index.ts",
+  //   "server/models/pet.ts",
+  //   "server/models/report.ts",
+  //   "server/models/user.ts",
+  //   "server/models/index.ts",
+  //   "server/dev.ts",
+  //   "server/index.ts"
+  // ]
 }
