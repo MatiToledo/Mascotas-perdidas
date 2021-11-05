@@ -13,7 +13,6 @@ export class Reportpet extends HTMLElement {
 
     const imageDrop = document.querySelector(".dropzone-photo");
     const buttonImg = document.querySelector(".load-photo");
-    console.log(imageDrop);
 
     const myDropzone = new Dropzone(imageDrop, {
       url: "/falsa",
@@ -69,8 +68,11 @@ export class Reportpet extends HTMLElement {
       );
     });
 
+    const submitButton = document.getElementById("submit-button");
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      submitButton.className = "button is-success is-loading";
       const cs = state.getState();
       const petOwnerEmail = cs.email;
       const petName = e.target.petName.value;
@@ -136,7 +138,7 @@ export class Reportpet extends HTMLElement {
         <div id="map" class="mapbox"></div>
       </div>  
 
-      <button class="button is-success">Reportar como perdido</button>
+      <button id="submit-button" class="button is-success">Reportar como perdido</button>
     </form>
     `;
   }

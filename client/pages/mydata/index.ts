@@ -5,8 +5,11 @@ export class Mydata extends HTMLElement {
   connectedCallback() {
     this.render();
     const form = document.querySelector(".mydata__form");
+    const submitButton = document.getElementById("submit-button");
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      submitButton.className = "button is-success is-loading";
       const email = state.getState().email;
       const target = e.target as any;
       const userName = target.username.value;
@@ -47,7 +50,7 @@ export class Mydata extends HTMLElement {
           <my-text>Repetir contraseña</my-text>
           <input class="input is-info" type="password" placeholder="Confirme su contraseña" name="confirmpassword">
         </div>
-      <button class="button is-success">Modificar</button>
+      <button id="submit-button" class="button is-success">Modificar</button>
     </form>
     `;
   }

@@ -15,6 +15,9 @@ import {
   sendNotification,
   petReports,
 } from "./controllers/pets-controller";
+import { sequelize } from "./models/connect";
+var _ = require("lodash");
+// sequelize.sync({ force: true });
 
 const SECRET = process.env.TOKEN_SECRET;
 
@@ -36,19 +39,19 @@ app.get("/users", async (req, res) => {
   res.json(findUsersRes);
 });
 
-app.get("/foundEmail", async (req, res) => {
-  if (!req.query) {
+app.get("/users/:email", async (req, res) => {
+  if (_.isEmpty(req.params)) {
     res.status(400).json({
       message: "no tengo query",
     });
   }
 
-  const foundEmailRes = await foundEmail(req.query);
+  const foundEmailRes = await foundEmail(req.params);
   res.json(foundEmailRes);
 });
 
 app.post("/auth", async (req, res) => {
-  if (!req.body) {
+  if (_.isEmpty(req.body)) {
     res.status(400).json({
       message: "no tengo body",
     });
@@ -59,7 +62,7 @@ app.post("/auth", async (req, res) => {
 });
 
 app.post("/auth/token", async (req, res) => {
-  if (!req.body) {
+  if (_.isEmpty(req.body)) {
     res.status(400).json({
       message: "no tengo body",
     });
@@ -85,8 +88,8 @@ function authMiddleware(req, res, next) {
   }
 }
 
-app.patch("/modifyData", authMiddleware, async (req, res) => {
-  if (!req.body) {
+app.patch("/users/modify", authMiddleware, async (req, res) => {
+  if (_.isEmpty(req.body)) {
     res.status(400).json({
       message: "no tengo body",
     });
@@ -102,8 +105,8 @@ app.get("/pets", async (req, res) => {
   res.json(findPetsRes);
 });
 
-app.post("/reportPet", authMiddleware, async (req, res) => {
-  if (!req.body) {
+app.post("/pets/report", authMiddleware, async (req, res) => {
+  if (_.isEmpty(req.body)) {
     res.status(400).json({
       message: "no tengo body",
     });
@@ -114,32 +117,29 @@ app.post("/reportPet", authMiddleware, async (req, res) => {
 });
 
 app.get("/pets/me", authMiddleware, async (req, res) => {
-  if (!req.body) {
+  if (_.isEmpty(req._user)) {
     res.status(400).json({
-      message: "no tengo body",
+      message: "no tengo user id",
     });
   }
 
   const response = await myPets(req._user.id);
-  console.log(response);
-
   res.json(response);
 });
 
 app.get("/pets/around", async (req, res) => {
-  if (!req.query) {
+  if (_.isEmpty(req.query)) {
     res.status(400).json({
       message: "no tengo query",
     });
   }
-  console.log(req.query);
 
   const petsAroundRes = await petsAround(req.query);
   res.json(petsAroundRes);
 });
 
-app.delete("/deletePetReport", authMiddleware, async (req, res) => {
-  if (!req.body) {
+app.delete("/pets/delete", authMiddleware, async (req, res) => {
+  if (_.isEmpty(req.body)) {
     res.status(400).json({
       message: "no tengo query",
     });
@@ -149,8 +149,8 @@ app.delete("/deletePetReport", authMiddleware, async (req, res) => {
   res.json(deletePetReportRes);
 });
 
-app.post("/editPetReport", authMiddleware, async (req, res) => {
-  if (!req.body) {
+app.patch("/pets/edit", authMiddleware, async (req, res) => {
+  if (_.isEmpty(req.body)) {
     res.status(400).json({
       message: "no tengo query",
     });
@@ -160,8 +160,8 @@ app.post("/editPetReport", authMiddleware, async (req, res) => {
   res.json(editPetReportRes);
 });
 
-app.post("/infoAboutPet", async (req, res) => {
-  if (!req.body) {
+app.post("/pets/info", async (req, res) => {
+  if (_.isEmpty(req.body)) {
     res.status(400).json({
       message: "no tengo query",
     });
@@ -171,8 +171,8 @@ app.post("/infoAboutPet", async (req, res) => {
   res.json(infoAboutPettRes);
 });
 
-app.post("/sendNotification", async (req, res) => {
-  if (!req.body) {
+app.post("/notifications", async (req, res) => {
+  if (_.isEmpty(req.body)) {
     res.status(400).json({
       message: "no tengo query",
     });
@@ -181,12 +181,7 @@ app.post("/sendNotification", async (req, res) => {
   res.json(sendNotificationRes);
 });
 
-app.get("/petReports", async (req, res) => {
-  if (!req.body) {
-    res.status(400).json({
-      message: "no tengo query",
-    });
-  }
+app.get("/infoPets", async (req, res) => {
   const petReportsRes = await petReports();
   res.json(petReportsRes);
 });

@@ -27,7 +27,6 @@ export async function createPetReport(UserId, body) {
     discard_original_filename: true,
     width: 1000,
   });
-  console.log(imagen);
 
   const user = await User.findByPk(UserId);
 

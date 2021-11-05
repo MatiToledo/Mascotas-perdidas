@@ -101,11 +101,12 @@ const state = {
       .then((data) => {
         if (data == true) {
           window.alert("Registro realizado con exito");
+          callback();
         } else {
           window.alert("Las contraseñas no coinciden");
+          location.reload();
         }
       });
-    callback();
   },
 
   //-----------------------------------------------------------------------------------------------
@@ -113,7 +114,7 @@ const state = {
   foundEmail(email, callback?) {
     const cs = state.getState();
 
-    fetch(API_BASE_URL + "/foundEmail?email=" + email)
+    fetch(API_BASE_URL + "/users/" + email)
       .then((res) => {
         return res.json();
       })
@@ -152,6 +153,7 @@ const state = {
           callback();
         } else {
           window.alert("Email o contraseña incorrecta");
+          location.reload();
         }
       });
   },
@@ -161,7 +163,7 @@ const state = {
   ModifyData(data, callback?) {
     const cs = state.getState();
 
-    fetch(API_BASE_URL + "/modifyData", {
+    fetch(API_BASE_URL + "/users/modify", {
       method: "patch",
       headers: {
         "content-type": "application/json",
@@ -189,7 +191,7 @@ const state = {
   createPetReport(data, callback?) {
     const cs = state.getState();
 
-    fetch(API_BASE_URL + "/reportPet", {
+    fetch(API_BASE_URL + "/pets/report", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -215,7 +217,7 @@ const state = {
   deletePetReport(data, callback?) {
     const cs = state.getState();
 
-    fetch(API_BASE_URL + "/deletePetReport", {
+    fetch(API_BASE_URL + "/pets/delete", {
       method: "delete",
       headers: {
         "content-type": "application/json",
@@ -239,7 +241,7 @@ const state = {
   editPetReport(data, callback?) {
     const cs = state.getState();
 
-    fetch(API_BASE_URL + "/editPetReport", {
+    fetch(API_BASE_URL + "/pets/edit", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -261,7 +263,7 @@ const state = {
   //-----------------------------------------------------------------------------------------------
 
   infoAboutPet(data, callback?) {
-    fetch(API_BASE_URL + "/infoAboutPet", {
+    fetch(API_BASE_URL + "/pets/info", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -279,7 +281,7 @@ const state = {
   //-----------------------------------------------------------------------------------------------
 
   sendNotification(data, callback?) {
-    fetch(API_BASE_URL + "/sendNotification", {
+    fetch(API_BASE_URL + "/notifications", {
       method: "post",
       headers: {
         "content-type": "application/json",

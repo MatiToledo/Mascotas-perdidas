@@ -5,8 +5,11 @@ export class Ingresar extends HTMLElement {
   connectedCallback() {
     this.render();
     const form = document.querySelector(".ingresar__form");
+    const submitButton = document.getElementById("submit-button");
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+      submitButton.className = "button is-success is-loading";
       const target = e.target as any;
       const email = target.email.value;
 
@@ -34,7 +37,7 @@ export class Ingresar extends HTMLElement {
           <my-text>Password</my-text>
           <input class="input is-info" type="password" placeholder="Inserte su email" name="password">
         </div>
-        <button class="button is-success">Ingresar</button>
+        <button id="submit-button" class="button is-success">Ingresar</button>
         <a class="a__registrarse" href="/registrarse">Registrarse</a>
     </form>
     `;

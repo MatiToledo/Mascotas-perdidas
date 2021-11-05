@@ -1,9 +1,11 @@
 import { Router } from "@vaadin/router";
 import { state } from "../../state";
+var _ = require("lodash");
 const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:8010";
 
 export class Home extends HTMLElement {
   connectedCallback() {
+    const cs = state.getState();
     this.render();
     const giveLocation = document.getElementById("give-location");
 

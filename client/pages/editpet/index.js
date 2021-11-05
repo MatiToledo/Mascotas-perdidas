@@ -13,7 +13,6 @@ export class Editpet extends HTMLElement {
 
     const imageDrop = document.querySelector(".dropzone-photo");
     const buttonImg = document.querySelector(".load-photo");
-    console.log(imageDrop);
     const myDropzone = new Dropzone(imageDrop, {
       url: "/falsa",
       autoProcessQueue: false,
@@ -56,7 +55,6 @@ export class Editpet extends HTMLElement {
           language: "es",
         },
         function (err, data, res) {
-          console.log(data.features[0]);
           const firstResult = data.features[0];
           const [lng, lat] = firstResult.geometry.coordinates;
           map.setCenter(firstResult.geometry.coordinates);

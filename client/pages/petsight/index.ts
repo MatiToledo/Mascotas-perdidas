@@ -5,9 +5,12 @@ export class Petsight extends HTMLElement {
   connectedCallback() {
     this.render();
     const form = document.querySelector(".report__form");
+    const submitButton = document.getElementById("submit-button");
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const cs = state.getState();
+      submitButton.className = "button is-success is-loading";
 
       const target = e.target as any;
       const PetId = cs.petToReport.id;
@@ -57,7 +60,7 @@ export class Petsight extends HTMLElement {
               <my-text>Donde lo viste?</my-text>
               <textarea class="textarea is-link" placeholder="Describa a su mascota" name="seenIn"></textarea>
             </div>
-            <button class="button is-success">Enviar</button>
+            <button id="submit-button" class="button is-success">Enviar</button>
           </form>
         </div>
     `;

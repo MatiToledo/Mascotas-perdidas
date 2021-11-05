@@ -5,7 +5,9 @@ export class Rregistrarse extends HTMLElement {
   connectedCallback() {
     this.render();
     const form = document.querySelector(".registrarse__form");
+    const submitButton = document.getElementById("submit-button");
     form.addEventListener("submit", (e) => {
+      submitButton.className = "button is-success is-loading";
       e.preventDefault();
       const target = e.target as any;
       const userName = target.username.value;
@@ -41,7 +43,7 @@ export class Rregistrarse extends HTMLElement {
           <my-text>Repetir contraseña</my-text>
           <input class="input is-info" type="password" placeholder="Confirme su contraseña" name="confirmpassword">
         </div>
-      <button class="button is-success">Guardar</button>
+      <button id="submit-button" class="button is-success">Guardar</button>
     </form>
     `;
   }
