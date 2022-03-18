@@ -83,6 +83,15 @@ export async function deletePetReport(body) {
 
 //-----------------------------------------------------------------------------------------------------------
 
+export async function toEditPetReport(body) {
+  const { id } = body;
+
+  const foundPet = await Pet.findByPk(id);
+  return foundPet;
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
 export async function editPetReport(body) {
   const {
     petName,

@@ -14,6 +14,7 @@ import {
   infoAboutPet,
   sendNotification,
   petReports,
+  toEditPetReport,
 } from "./controllers/pets-controller";
 import { sequelize } from "./models/connect";
 var _ = require("lodash");
@@ -158,6 +159,19 @@ app.patch("/pets/edit", authMiddleware, async (req, res) => {
 
   const editPetReportRes = await editPetReport(req.body);
   res.json(editPetReportRes);
+});
+
+app.get("/pets/toEdit/:id", authMiddleware, async (req, res) => {
+  console.log(req.params);
+
+  if (_.isEmpty(req.params)) {
+    res.status(400).json({
+      message: "no tengo query",
+    });
+  }
+
+  const toEditPetReportRes = await toEditPetReport(req.params);
+  res.json(toEditPetReportRes);
 });
 
 app.post("/pets/info", async (req, res) => {
