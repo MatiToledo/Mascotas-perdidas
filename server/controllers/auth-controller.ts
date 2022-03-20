@@ -10,7 +10,7 @@ function getSHA256ofString(text: string) {
 
 export async function auth(body) {
   const { email, userName, password, confirmpassword } = body;
-  if (password == confirmpassword) {
+  if (password != "" && password == confirmpassword) {
     const [user, created] = await User.findOrCreate({
       where: { email },
       defaults: {
