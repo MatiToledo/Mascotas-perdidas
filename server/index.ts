@@ -24,7 +24,7 @@ const SECRET = process.env.TOKEN_SECRET;
 
 const app = express();
 const port = process.env.PORT || 8010;
-const staticDirPath = path.resolve(__dirname, "../../client-dist");
+const staticDirPath = path.resolve(__dirname, "../../dist/client");
 
 app.use(cors());
 app.use(
