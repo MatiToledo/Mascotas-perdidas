@@ -5,12 +5,12 @@
   "scripts": {
     "dev:fe": "parcel ./client/index.html",
     "dev:be": "nodemon --watch ./server/index.ts --exec ts-node ./server/index.ts",
-    "build:fe": "parcel build ./client/index.html --dist-dir client-dist",
+    "build:fe": "parcel build ./client/index.html --dist-dir dist",
     "build:be": "tsc",
     "test": "ava",
     "dev": "npm run dev:be",
     "build": "npm run build:be && npm run build:fe",
-    "start": "node ./server-dist/server/index.js",
+    "start": "node ./dist/server/index.js",
     "sync": "ts-node ./server/sync.ts"
   },
   "dependencies": {

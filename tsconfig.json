@@ -3,7 +3,7 @@
     "target": "ESNext",
     "module": "CommonJS",
     "moduleResolution": "Node",
-    "outDir": "server-dist"
+    "outDir": "dist"
   },
   "includes": ["./server/**/*.ts"]
   // "files": [
